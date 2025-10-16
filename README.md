@@ -57,3 +57,5 @@ It uses AI and computer vision to translate American Sign Language (ASL) gesture
     python app.py
     ```
    Access it at `http://localhost:5000` in your web browser.
+
+**Note: Mediapipe requires Python version 3.9 or earlier. Please install a compatible Python version before installing Mediapipe.**
