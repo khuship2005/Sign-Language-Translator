@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Feedback - SamvaadSetu</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background: #c6cacf2c;
+    }
+    .background {
+      background: url("/static/bgiimage.jpg") no-repeat center center fixed;
+      background-size: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.3;
+      z-index: -2;
+    }
+    .background::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.397);
+      z-index: -1;
+    }
+    header {
+      background-color: #32597d;
+      font-weight: bold;	
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+    }
+    .title {
+      font-size: 30px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      color: white;
+    }
+    .tagline {
+      font-size: 15px;
+      font-family: 'Trebuchet MS', sans-serif;
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.829);
+      text-decoration: none;
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .nav-links a:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+    }
+    .feedback-container {
+      padding-top: 200px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 100px;
+    }
+    .slider-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .feedback-box {
+      width: 230px;
+      height: 240px;
+      background: #315a71be;
+      color: rgba(255, 255, 255, 1);
+      padding: 20px;
+      margin-left: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px #585f5cb9;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+    }
+    .stars {
+      font-size: 35px;
+      color: #f5c823ff;
+      margin-bottom: 10px;
+    }
+    .feedback-box p {
+      font-style: italic;
+      flex-grow: 1;
+    }
+    .feedback-box h4 {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #e4ecf0;
+    }
+    .dots {
+      text-align: center;
+      margin-top: 25px;
+    }
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .dot.active {
+      background-color: #717171;
+    }
+    .feedback-btn {
+      position: fixed;
+      top: 100px;
+      right: 30px;
+      background: rgba(13, 60, 67, 0.59);
+      color: white;
+      font-size: 16px;
+      border: none;
+      padding: 14px 22px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      z-index: 1000;
+      box-shadow: 0 0 8px rgba(220, 216, 216, 0.3);
+    }
+    .feedback-btn:hover{
+        transform: scale(1.03);
+        cursor: pointer;
+        background-color: rgba(8, 37, 42, 0.63);
+    }
+    #feedback-form {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 60vw;
+        height: 60vh;
+        background: #fff;
+        border-radius: 10px;
+        padding: 25px;
+        box-sizing: border-box;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        transform: translate(-50%, -50%);
+        display: none;
+        flex-direction: column;
+        z-index: 1001;
+    }
+    #feedback-form.active {
+        display: flex;
+    }
+    #feedback-form label {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+    #feedback-form input, #feedback-form textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        font-size: 14px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    #feedback-form button[type=submit] {
+        margin-top: 20px;
+        background: #f5a623;
+        border: none;
+        color: white;
+        padding: 12px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+    .blur-background {
+        filter: blur(5px);
+        pointer-events: none;
+    }
+    .white-background {
+        background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="background"></div>
+
+  <header>
+    <div>
+      <div class="title">SamvaadSetu</div>
+      <div class="tagline">Where hands speak and the heart understands!</div>
+    </div>
+    <nav class="nav-links">
+      <a href="http://localhost:5000/homepage">Home</a>
+      <a href="http://localhost:5000/feedback"><b>Feedback</b></a>
+      <a href="{{ url_for('about_us') }}">About Us</a>
+    </nav>
+  </header>
+
+  <div class="feedback-container">
+    <div class="slider-wrapper">
+      {% if reviews %}
+        {% for review in reviews %}
+          <div class="feedback-box">
+            <div class="stars">
+              {{ '★' * review.rating }}{{ '☆' * (5 - review.rating) }}
+            </div>
+            <p>{{ review.description }}</p>
+            <h4>– {{ review.reviewer_name }}</h4>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p style="color: black; font-size:40px; text-align:center; width:100%;">No feedback yet!</p>
+      {% endif %}
+    </div>
+
+    <div class="dots">
+      {% for i in range(1, total_pages + 1) %}
+        <span class="dot {% if i == current_page %}active{% endif %}" onclick="window.location='?page={{ i }}'"></span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <button class="feedback-btn" id="feedbackBtn" onclick="showForm()">Give Feedback</button>
+
+  <div id="feedback-form">
+    <form method="POST" action="{{ url_for('submit_feedback') }}">
+
+      <label for="rating">Rating (1 to 5):</label>
+      <input type="number" id="rating" name="rating" min="1" max="5" required />
+      <label for="description">Description:</label>
+      <textarea id="description" name="description" required></textarea>
+      <label for="reviewer_name">Your Name:</label>
+      <input type="text" id="reviewer_name" name="reviewer_name" required />
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+<script>
+    const form = document.getElementById('feedback-form');
+    const feedbackBtn = document.getElementById('feedbackBtn');
+    const feedbackContainer = document.querySelector('.feedback-container');
+
+    function showForm() {
+        form.classList.add('active');
+        feedbackBtn.style.display = 'none';
+        document.body.classList.add('white-background');
+        feedbackContainer.classList.add('blur-background');
+    }
+
+    window.addEventListener('click', function(event) {
+        if (form.classList.contains('active') &&
+            !form.contains(event.target) &&
+            event.target !== feedbackBtn) {
+            form.classList.remove('active');
+            feedbackBtn.style.display = 'block';
+            document.body.classList.remove('white-background');
+            feedbackContainer.classList.remove('blur-background');
+        }
+    });
+
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && form.classList.contains('active')) {
+            form.classList.remove('active');
+            feedbackBtn.style.display = 'block';
+            document.body.classList.remove('white-background');
+            feedbackContainer.classList.remove('blur-background');
+        }
+    });
+</script>
+</body>
+</html>

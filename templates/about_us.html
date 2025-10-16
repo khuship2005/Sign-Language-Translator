@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SamvaadSetu</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+}
+  .background {
+  background: url("/static/bgiimage.jpg") no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.3;
+  z-index: -2;
+}
+  .background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.397);
+  z-index: -1;
+}
+  header {
+  position: fixed;
+  top: 0;
+  font-weight: bold;
+  width: 96%;
+  background-color: #32597d;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+  .title {
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(255, 255, 255);
+  }
+  .tagline {
+    font-size:15px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
+  }
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  .nav-links a {
+    color: rgba(255, 255, 255, 0.829);
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .nav-links a:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+  }
+  section {
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      padding: 60px 20px;
+      border-radius: 12px;
+    }
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 24px;
+      color: rgb(54, 60, 67);
+      text-align: center;
+      font-weight: 600;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    .intro {
+      color: rgb(28, 50, 56);
+    }
+    .intro-text {
+      font-size: 20px;
+      margin-top: 70px;
+      line-height: 1.75;
+      background-color: #e2e8ea;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
+      margin-top: 5px;
+    }
+    .feature-card {
+      background-color: #e2e8ea;
+      color: #274655;
+      padding: 24px;
+      border-radius: 12px;
+      flex: 1 1 45%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    .feature-card:hover,
+    .feature-card:focus-within {
+      transform: scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      outline: none;
+      cursor: default;
+    }
+    .feature-card h3 {
+      margin-bottom: 14px;
+      font-weight: 600;
+      font-size: 1.4rem;
+    }
+    footer {
+      background-color: #315a71;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 17px;
+      box-shadow: inset 0 8px 15px rgba(0,0,0,0.3);
+    }
+    .social-media {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .social-media-icon {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(196, 201, 203, 0.26);
+      padding: 10px 18px;
+      border-radius: 50px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+    .social-media-icon img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 1px rgba(0,0,0,0.4));
+      border-radius: 20px;
+    }
+    .social-media-icon:hover,
+    .social-media-icon:focus {
+      background: rgba(234, 235, 235, 0.281);
+      outline: none;
+    }
+    .social-media-icon span {
+      font-size: 1rem;
+      color: rgb(255, 255, 255);
+      user-select: none;
+    }
+    @media (max-width: 768px) {
+      .intro {
+        flex-direction: column;
+      }
+      .features {
+        flex-direction: column;
+      }
+      nav.nav-links {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+      .feature-card {
+        flex: 1 1 100%;
+      }
+    }
+</style>
+</head>
+<body>
+  <div class="background"></div>
+  <header>
+    <div>
+      <div class="title">SamvaadSetu</div>
+      <div class="tagline">Where hands speak and the heart understands!</div>
+    </div>
+    <nav class="nav-links">
+      <a href="http://localhost:5000/homepage">Home</a>
+      <a href="http://localhost:5000/feedback">Feedback</a>
+      <a href="{{ url_for('about_us') }}"><b>About Us</b></a>
+    </nav>
+  </header>
+  <main>
+    <section aria-labelledby="about-heading">
+      <div class="intro">
+        <div class="intro-text">
+          <p><strong>SamvaadSetu</strong> is a blend of two beautiful Sanskrit words – "Samvaad" meaning dialogue and "Setu" meaning bridge.</p>
+          <p>Together, it represents our mission to build a bridge of communication where none existed before.
+            Millions of people around the world use sign language, but very few outside their community understand them. SamvaadSetu is here to change that — by turning hand gestures into meaningful text in English, Hindi, and Marathi, and by guiding the hearing community in learning signs through a friendly chatbot.</p>
+          <p>Our goal is not just to translate, but to connect. Because communication is more than speaking; it’s about understanding with empathy and heart.</p>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="offer-heading">
+      <h2 id="offer-heading">What We Offer</h2>
+      <div class="features">
+        <article class="feature-card" tabindex="0" aria-label="Real-Time Sign Detection">
+          <h3>🖐️ Real-Time Sign Detection</h3>
+          <p>Our app captures hand gestures through the camera and instantly converts them into accurate text output.</p>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Multilingual Output">
+          <h3>🌍 Multilingual Output</h3>
+          <p>Choose from Hindi, Marathi, or English — bringing accessibility closer to home for every user.</p>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Learn with a Chatbot">
+          <h3>💬 Learn with a Chatbot</h3>
+          <p>Don’t know how to sign a word? Just ask! Our AI chatbot teaches you quickly and visually.</p>
+        </article>
+        <article class="feature-card" tabindex="0" aria-label="Educational Companion">
+          <h3>📚 Educational Companion</h3>
+          <p>Useful in schools, inclusive classrooms, workplaces, and at home — empowering everyone to learn sign language.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer role="contentinfo">
+    <p>Connect with us on social media:</p>
+    <div class="social-media">
+      <div class="social-media-icon">
+        <img src="/static/icon1.jpg" alt="Facebook icon" />
+        <span>samvaad_setu123</span>
+      </div>
+      <div class="social-media-icon">
+        <img src="/static/icon2.jpg" alt="Instagram icon" />
+        <span>samvaad_setu123</span>
+      </div>
+      <div class="social-media-icon">
+        <img src="/static/icon3.jpg" alt="Twitter icon" />
+        <span>samvaad_setu123</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
