@@ -1,0 +1,7 @@
+Flask==2.3.4
+streamlit==1.30.0
+opencv-python==4.8.1.78
+mediapipe==1.12.0
+tensorflow==2.14.0
+numpy==1.26.0
+googletrans==4.0.0rc1
