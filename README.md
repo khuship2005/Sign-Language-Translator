@@ -48,7 +48,11 @@ It uses AI and computer vision to translate American Sign Language (ASL) gesture
     pip install -r requirements.txt
     ```
 
-4. **Run the application**
+4. **Run the streamlit chatbot**
+    ```bash
+    streamlit run chatbot.py
+    ```
+5. **Run the main application**
     ```bash
     python app.py
     ```
